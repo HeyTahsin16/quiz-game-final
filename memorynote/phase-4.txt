@@ -1,0 +1,6 @@
+STARTED: Phase 4 Task 1: Build anti-copy <canvas> Quiz Modal (QuizCanvasModal.tsx) with per-rarity timer, jitter/scanlines/watermark, and hideOnBlur mask
+DONE: Phase 4 Task 1: Build anti-copy <canvas> Quiz Modal (QuizCanvasModal.tsx) with per-rarity timer, jitter/scanlines/watermark, and hideOnBlur mask
+STARTED: Phase 4 Task 2: Build live matchup card text formatter (cardTextFormatter.ts) and status effect badges component (StatusBadges.tsx)
+DONE: Phase 4 Task 2: Build live matchup card text formatter (cardTextFormatter.ts) and status effect badges component (StatusBadges.tsx)
+STARTED: Phase 4 Task 3: Wire full playable local battle UI in BattleScreen.tsx, NineSliceCard.tsx, ResultScreen.tsx, and App.tsx
+DONE: Phase 4 Task 3: Wire full playable local battle UI in BattleScreen.tsx, NineSliceCard.tsx, ResultScreen.tsx, and App.tsx

@@ -1,0 +1,340 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@layer base {
+	:root {
+		--font-sans:
+			"Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+		--font-pixel: var(--font-sans);
+		--font-pixel-body: var(--font-sans);
+	}
+
+	body {
+		font-family: var(--font-sans);
+		background-color: #141926;
+		color: #f1f5f9;
+	}
+}
+
+.font-pixel {
+	font-family: var(--font-sans);
+	font-weight: 800;
+	letter-spacing: 0.02em;
+}
+
+.font-pixel-body {
+	font-family: var(--font-sans);
+	font-weight: 600;
+}
+
+.pixelated {
+	image-rendering: pixelated;
+}
+
+/* ============================================================================
+   FlatUI 9-Slice Pixel Art Primitives (/assets/flatui/UI_Flat_*.png)
+   ============================================================================ */
+
+/* Outer Frames (96x64 source, 6px bevel -> 12px/18px border) */
+.flat-frame-silver {
+	border-style: solid;
+	border-width: 12px;
+	border-image-source: url("/assets/flatui/UI_Flat_Frame01a.png");
+	border-image-slice: 6 fill;
+	border-image-width: 12px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-frame-blue {
+	border-style: solid;
+	border-width: 12px;
+	border-image-source: url("/assets/flatui/UI_Flat_Frame02a.png");
+	border-image-slice: 6 fill;
+	border-image-width: 12px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-frame-gold {
+	border-style: solid;
+	border-width: 12px;
+	border-image-source: url("/assets/flatui/UI_Flat_Frame03a.png");
+	border-image-slice: 6 fill;
+	border-image-width: 12px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+/* Frame Markers (64x32 source, top tab/header style) */
+.flat-marker-silver {
+	border-style: solid;
+	border-width: 8px 8px 4px 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameMarker01a.png");
+	border-image-slice: 4 4 2 4 fill;
+	border-image-width: 8px 8px 4px 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-marker-blue {
+	border-style: solid;
+	border-width: 8px 8px 4px 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameMarker02a.png");
+	border-image-slice: 4 4 2 4 fill;
+	border-image-width: 8px 8px 4px 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-marker-gold {
+	border-style: solid;
+	border-width: 8px 8px 4px 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameMarker03a.png");
+	border-image-slice: 4 4 2 4 fill;
+	border-image-width: 8px 8px 4px 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+/* Frame Slots (32x32 source, 4px bevel -> 8px/10px border) */
+.flat-slot-silver {
+	background-color: #d7dee8;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot01a.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-slot-silver-inset {
+	background-color: #b7c2d0;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot01b.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-slot-dark {
+	background-color: #131826;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot01c.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-slot-blue {
+	background-color: #2c68b0;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot02a.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-slot-blue-bright {
+	background-color: #3a82d6;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot02b.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-slot-blue-dark {
+	background-color: #0e192d;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot02c.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-slot-gold {
+	background-color: #e6a83a;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot03a.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-slot-orange {
+	background-color: #d97324;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot03b.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-slot-gold-dark {
+	background-color: #21180d;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot03c.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+/* Regular Cream Title & Turn Banners (Seamless Pixel-Art Box without 9-Slice Grid Lines) */
+.flat-banner-offset-bl,
+.flat-banner-ribbon-up,
+.flat-banner-ribbon-down,
+.flat-banner-offset-tl {
+	background-color: #fffdf7;
+	border: 2px solid #141824;
+	box-shadow:
+		inset 2px -2px 0 0 #f3c16f,
+		-3px 3px 0 0 #141824;
+	padding: 4px 10px;
+	color: #141824;
+}
+
+/* Interactive Cream Pixel Buttons (Seamless Pixel-Art Bevel without 9-Slice Grid Lines) */
+.flat-btn-bevel {
+	background-color: #fffdf7;
+	border: 2px solid #141824;
+	box-shadow:
+		inset 0 -2px 0 0 #f3c16f,
+		inset 0 2px 0 0 #ffffff;
+	color: #141824;
+	transition:
+		transform 80ms ease,
+		filter 80ms ease,
+		background-color 80ms ease;
+}
+
+.flat-btn-bevel:hover:not(:disabled) {
+	background-color: #ffffff;
+	box-shadow:
+		inset 0 -2px 0 0 #eab354,
+		inset 0 2px 0 0 #ffffff;
+	filter: brightness(1.03);
+}
+
+.flat-btn-bevel:active:not(:disabled) {
+	background-color: #f7ead2;
+	box-shadow: inset 0 2px 0 0 #e0ab52;
+	transform: translateY(1px);
+}
+
+.flat-btn-bevel:disabled {
+	background-color: #d8d4ca;
+	box-shadow: none;
+	opacity: 0.55;
+}
+
+.flat-btn-round {
+	background-color: #fffdf7;
+	border: 2px solid #141824;
+	border-radius: 4px;
+	box-shadow:
+		inset 0 -2px 0 0 #f3c16f,
+		inset 0 2px 0 0 #ffffff;
+	color: #141824;
+	transition:
+		transform 80ms ease,
+		filter 80ms ease,
+		background-color 80ms ease;
+}
+
+.flat-btn-round:hover:not(:disabled) {
+	background-color: #ffffff;
+	filter: brightness(1.03);
+}
+
+.flat-btn-round:active:not(:disabled) {
+	background-color: #f7ead2;
+	box-shadow: inset 0 2px 0 0 #e0ab52;
+	transform: translateY(1px);
+}
+
+.flat-btn-round:disabled {
+	background-color: #d8d4ca;
+	box-shadow: none;
+	opacity: 0.55;
+}
+
+/* Input Fields (High-contrast dark pixel slot) */
+.flat-input {
+	background-color: #0b0f1a;
+	border-style: solid;
+	border-width: 8px;
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot01c.png");
+	border-image-slice: 4 fill;
+	border-image-width: 8px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+	color: #f8fafc;
+}
+
+.flat-input:focus {
+	border-image-source: url("/assets/flatui/UI_Flat_FrameSlot02b.png");
+	outline: none;
+}
+
+/* Bar Track (UI_Flat_Bar06a.png, 32x8 source) */
+.flat-bar-track {
+	border-style: solid;
+	border-width: 4px 6px 4px 6px;
+	border-image-source: url("/assets/flatui/UI_Flat_Bar06a.png");
+	border-image-slice: 2 3 2 3 fill;
+	border-image-width: 4px 6px 4px 6px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+/* Selection Reticles (UI_Flat_Select01a_1.png & 02a_1.png, 32x32 source) */
+.flat-select-reticle {
+	border-style: solid;
+	border-width: 16px;
+	border-image-source: url("/assets/flatui/UI_Flat_Select01a_1.png");
+	border-image-slice: 10 10 10 10;
+	border-image-width: 16px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.flat-select-reticle-alt {
+	border-style: solid;
+	border-width: 16px;
+	border-image-source: url("/assets/flatui/UI_Flat_Select02a_1.png");
+	border-image-slice: 10 10 10 10;
+	border-image-width: 16px;
+	border-image-repeat: stretch;
+	image-rendering: pixelated;
+}
+
+.math-text .katex {
+	font-size: 1.14em;
+}
+
+.math-text .katex .mfrac {
+	padding: 0 0.1em;
+}
+
+.math-text .katex .msupsub {
+	font-size: 1.08em;
+}
+

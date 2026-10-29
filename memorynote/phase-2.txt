@@ -1,0 +1,4 @@
+STARTED: Phase 2 Task 1: Port reference engine modules to TypeScript in src/engine (utils, powers, conditions, cards, actions, action-manager, game)
+DONE: Phase 2 Task 1: Port reference engine modules to TypeScript in src/engine (utils, powers, conditions, cards, actions, action-manager, game)
+STARTED: Phase 2 Task 2: Write 500-battle simulation script (src/engine/sim.ts), port/extend test suite in tests/, and remove legacy root JS engine files
+DONE: Phase 2 Task 2: Write 500-battle simulation script (src/engine/sim.ts), port/extend test suite in tests/, and remove legacy root JS engine files

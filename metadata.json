@@ -1,0 +1,5 @@
+{
+	"name": "Quiz Duel",
+	"description": "An online 1v1 pixel-art card battler where every thrown card triggers a subject quiz that determines whether the card lands.",
+	"requestFramePermissions": []
+}

@@ -1,0 +1,6 @@
+STARTED: Phase 5 Task 1: Provision Firebase via show_aistudio_ui (firebase_setup) and ProvisionFirebase RPC
+DONE: Phase 5 Task 1: Provision Firebase via show_aistudio_ui (firebase_setup) and ProvisionFirebase RPC
+STARTED: Phase 5 Task 2: Install firebase SDK, define firebase-blueprint.json, security_spec.md, and hardened firestore.rules, and deploy rules
+DONE: Phase 5 Task 2: Install firebase SDK, define firebase-blueprint.json, security_spec.md, and hardened firestore.rules, and deploy rules
+STARTED: Phase 5 Task 3: Build Firebase client & multiplayer room service (src/firebase/client.ts, src/firebase/multiplayer.ts) and wire LobbyScreen, BattleScreen, and App.tsx
+DONE: Phase 5 Task 3: Build Firebase client & multiplayer room service (src/firebase/client.ts, src/firebase/multiplayer.ts) and wire LobbyScreen, BattleScreen, and App.tsx

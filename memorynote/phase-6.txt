@@ -1,0 +1,136 @@
+STARTED: Phase 6 Task 1: Enhance Web Audio SFX (shield, card, quiz-correct, quiz-wrong, heal), add Deck Viewer Modal on Character Select, and add Action Log & Copy Code in Lobby/Battle
+DONE: Phase 6 Task 1: Enhance Web Audio SFX (shield, card, quiz-correct, quiz-wrong, heal), add Deck Viewer Modal on Character Select, and add Action Log & Copy Code in Lobby/Battle
+STARTED: Phase 6 Task 2: Replace pixelated fonts with clean sans-serif fonts across index.html, src/index.css, NineSliceCard.tsx, and QuizCanvasModal.tsx
+DONE: Phase 6 Task 2: Replace pixelated fonts with clean sans-serif fonts across index.html, src/index.css, NineSliceCard.tsx, and QuizCanvasModal.tsx
+STARTED: Phase 6 Task 3: Integrate uploaded Dark Ninja sprite frames (idle1, atttack1, hurt1, death1) into public assets, character config, PixelSprite animation states, BattleScreen combat animations, ResultScreen, and DebugGalleryScreen
+DONE: Phase 6 Task 3: Integrate uploaded Dark Ninja sprite frames (idle1, atttack1, hurt1, death1) into public assets, character config, PixelSprite animation states, BattleScreen combat animations, ResultScreen, and DebugGalleryScreen
+STARTED: Phase 6 Task 4: Chop and integrate Samurai sprite sheets (IDLE, ATTACK 1, HURT, and reversed HURT for death) into public assets, character config, and tests
+DONE: Phase 6 Task 4: Chop and integrate Samurai sprite sheets (IDLE, ATTACK 1, HURT, and reversed HURT for death) into public assets, character config, and tests
+STARTED: Phase 6 Task 5: Chop and integrate Knight and Reaper sprite sheets with Reaper turn-transition animations (idle2 <-> idle1 via BattleStartanimation / ReaperDefeated) and death opacity fade
+DONE: Phase 6 Task 5: Chop and integrate Knight and Reaper sprite sheets with Reaper turn-transition animations (idle2 <-> idle1 via BattleStartanimation / ReaperDefeated) and death opacity fade
+STARTED: Phase 6 Task 6: Analyze moon.png ground coordinates and integrate moon.png as default battle map with zero character floating
+DONE: Phase 6 Task 6: Analyze moon.png ground coordinates and integrate moon.png as default battle map with zero character floating
+STARTED: Phase 6 Task 7: Implement 3 male character voice sets from /assets/dialogue (attack, hurt, death; no female voices, no Reaper voice) and integrate 9-slice card frames from /assets/goldui (20240707dragon9SlicesC/D/E.png plus 4th recolored variant)
+DONE: Phase 6 Task 7: Implement 3 male character voice sets from /assets/dialogue (attack, hurt, death; no female voices, no Reaper voice) and integrate 9-slice card frames from /assets/goldui (20240707dragon9SlicesC/D/E.png plus 4th recolored variant)
+STARTED: Phase 6 Task 8: Adjust NineSliceCard interior padding and element sizing so all text and badges stay strictly inside the inner border of the 9-slice card frame
+DONE: Phase 6 Task 8: Adjust NineSliceCard interior padding and element sizing so all text and badges stay strictly inside the inner border of the 9-slice card frame
+STARTED: Phase 6 Task 9: Redesign the whole UI using flatui sprites from /assets/flatui/Sprites
+DONE: Phase 6 Task 9: Redesign the whole UI using flatui sprites from /assets/flatui/Sprites
+STARTED: Phase 6 Task 10: Fix canPlay and canThrowSelection argument order in BattleScreen.tsx and harden conditions.ts
+DONE: Phase 6 Task 10: Fix canPlay and canThrowSelection argument order in BattleScreen.tsx and harden conditions.ts
+STARTED: Phase 6 Task 11: Remove ribbon banner divs from everywhere and use the regular white title boxes (offset-bl) across all screens
+DONE: Phase 6 Task 11: Remove ribbon banner divs from everywhere and use the regular white title boxes (offset-bl) across all screens
+STARTED: Phase 6 Task 12: Integrate real SFX and background music from /assets/sounds and /assets/uisfx into public/assets and audioManager
+DONE: Phase 6 Task 12: Integrate real SFX and background music from /assets/sounds and /assets/uisfx into public/assets and audioManager
+STARTED: Phase 6 Task 13: Remove bottom footer element from App.tsx
+DONE: Phase 6 Task 13: Remove bottom footer element from App.tsx
+STARTED: Phase 6 Task 14: Fix vertical alignment and border-width parity between white/cream FlatButton variants and colored slot FlatButton variants
+DONE: Phase 6 Task 14: Fix vertical alignment and border-width parity between white/cream FlatButton variants and colored slot FlatButton variants
+STARTED: Fix-up Step 1: Make src/firebase/client.ts read VITE_FIREBASE_* env vars and optional firebase-applet-config.json via import.meta.glob; update .env.example and .gitignore
+DONE: Fix-up Step 1: Updated src/firebase/client.ts (removed hard import, added VITE_FIREBASE_* env vars + import.meta.glob fallback), .env.example, and .gitignore.
+STARTED: Fix-up Step 2: Update package.json (name=quiz-duel, workerThreads=false, typecheck script, remove unused deps), update .github/workflows/ci.yml to use npm, and fix all tsc --noEmit errors
+DONE: Fix-up Step 2: Updated package.json (name=quiz-duel, workerThreads=false, typecheck script, removed astro/@astrojs/preact/preact/htm/driver.js/gsap/release-it), .github/workflows/ci.yml (npm ci/typecheck/test/build), tsconfig.json, src/audio/audioManager.ts, src/engine/action-manager.ts, src/engine/actions.ts, src/engine/sim.ts, src/engine/utils.ts, src/ui/screens/LobbyScreen.tsx, and src/ui/screens/TitleScreen.tsx. Verified with npm run typecheck (exit 0).
+STARTED: Fix-up Step 3: Shuffle each question's choices per match with the seeded RNG (update correctIndex, QuizCanvasModal, and QuestionPeekModal) and add 160-question x 5-seed answer position distribution test (22-28% per position)
+DONE: Fix-up Step 3: Updated src/content/questions.ts, src/engine/cards.ts, src/ui/components/QuizCanvasModal.tsx, src/ui/screens/BattleScreen.tsx, and tests/questions.test.ts. Verified with npx ava tests/questions.test.ts (3/3 passed, 22-28% per answer position across 160 questions x 5 seeds).
+STARTED: Fix-up Step 4: Update multiplayer heartbeat (sender's own lastSeen + updatedAt every 30s), transactional appendRoomAction with actionCount mismatch replay and 500-action cap draw, and per-tab seat ID for single-account two-tab testing
+DONE: Fix-up Step 4: Updated src/firebase/multiplayer.ts (30s heartbeat updating only sender lastSeenMs + updatedAt, runTransaction appendRoomAction with actionCount mismatch replay and 500-action cap draw, getTabSeatId per-tab seat ID), firebase-blueprint.json, firestore.rules (deployed via fax.DeployRules), src/ui/screens/LobbyScreen.tsx, src/ui/screens/BattleScreen.tsx, src/ui/screens/ResultScreen.tsx, and src/App.tsx.
+STARTED: Fix-up Step 5: Track throwsThisTurn in GameState so skipTurn grants +1 mana only when nothing was thrown; scale lifeSteal % and loseHp in reduced forms (Reaper, Feed, Offering); delete dead keys from ENGINE_CONFIG; add unit tests for skip, poison, parasite, reflect, life steal, and subject role-lint
+DONE: Fix-up Step 5: Updated src/engine/config.ts (removed dead keys drawPerTurn, skipTurnExtraManaGain, epicLegendaryReducedScale, duplicate stun and fatigue keys), src/engine/actions.ts (tracked throwsThisTurn in GameState so skipTurn grants +1 mana only when nothing was thrown; scaled lifeSteal % and loseHp in reduced forms for Reaper, Feed, Offering), src/ui/screens/BattleScreen.tsx, tests/engine-and-actions.test.ts, tests/cards-and-decks.test.ts, and tests/ui-helpers.test.ts. Verified with npm test (44/44 passed).
+STARTED: Fix-up Step 6: Remove docs/ from .gitignore and add .aistudio/; delete root Slay the Web README.md, DOCUMENTATION.md, CHANGELOG.md, AGENTS.md, plan.md, plan-animation-effects.md, and bun.lock; write a short Quiz Duel README.md and ensure npm ci && npm run build succeeds
+DONE: Fix-up Step 6: Updated .gitignore (removed docs/ and package-lock.json, added .aistudio/ and .env), deleted root AGENTS.md, CHANGELOG.md, DOCUMENTATION.md, plan.md, plan-animation-effects.md, and bun.lock, wrote concise Quiz Duel README.md and docs/{DECKS,ASSETS,REFERENCE_MAP}.md, and generated package-lock.json. Verified with npm ci && npm run build (exit 0).
+STARTED: Fix-up Step 7: Rewrite memorynote.txt as one single current-state block (PHASE, LAST DONE, NEXT, BLOCKERS)
+DONE: Fix-up Step 7: Rewrote /memorynote.txt as a single current-state block (PHASE, LAST DONE, NEXT, BLOCKERS). Verified with bun run check && bun run test.
+STARTED: Restore canonical firebase-applet-config.json via ProvisionFirebase RPC, add firebase-applet-config.json to .gitignore, and exclude it from biome.jsonc formatting
+DONE: Restore canonical firebase-applet-config.json via ProvisionFirebase RPC (project gen-lang-client-0602329043, db ai-studio-slaytheweb-3b65bb49-3122-4f8f-b72f-c9fa845ae3ed), added firebase-applet-config.json to .gitignore, and excluded !firebase-applet-config.json from biome.jsonc. Verified with compile_applet.
+STARTED: Redesign UI into a cohesive pixel-art game layout: Main Menu with vertical stack (1. Play, 2. Collection, 3. Settings with real volume sliders, 4. Credits housing the Debug Gallery button), Collection screen for browsing all 80 cards & 4 character decks, real volume gain sliders in audioManager.ts, and uniform in-game HUD bar
+DONE: Redesigned UI into a cohesive pixel-art game layout: updated src/ui/screens/TitleScreen.tsx with vertical Main Menu stack (1. PLAY, 2. COLLECTION, 3. SETTINGS, 4. CREDITS), created src/ui/screens/CollectionScreen.tsx (80-Card Catalog, 4 Champion 24-Card Decks, 160 STEM Question Bank), created src/ui/components/SettingsModal.tsx and updated src/audio/audioManager.ts with real-time Master/Music/SFX/Voice volume sliders, created src/ui/screens/CreditsScreen.tsx housing the Debug Gallery button, and updated src/App.tsx with a clean in-game HUD bar. Verified with npm run typecheck, bun run check, bun run test, and compile_applet.
+STARTED: Remove duplicate Back to Main Menu buttons from CollectionScreen, CreditsScreen, Settings page, and App HUD; add mobile landscape orientation lock & portrait rotate prompt overlay
+DONE: Removed duplicate Back to Main Menu / Change Fighters buttons from CollectionScreen, CreditsScreen, SettingsContent, LobbyScreen, and App HUD; added mobile landscape orientation lock (screen.orientation.lock('landscape')) and portrait rotation prompt overlay in src/App.tsx. Verified with npm run typecheck, bun run check, bun run test, and compile_applet.
+STARTED: Remove Moonlit Graveyard 3072x1664px badge overlay from BattleArenaStage in battle (keep only when showGroundGuides debug mode is enabled)
+DONE: Removed Moonlit Graveyard 3072x1664px badge overlay from BattleArenaStage during battle (now only shown when showGroundGuides is active in Debug Gallery). Verified with compile_applet.
+STARTED: Remove Settings button when in Collection and Collection button when in Settings; make cards inside Collection 20% bigger
+DONE: Removed Settings button when in Collection and Collection button when in Settings; made cards inside Collection 20% bigger (scaleMultiplier={1.2})
+STARTED: Remove "Play as" / "Choose for Battle" buttons from Champion 24-Card Decks in CollectionScreen.tsx
+DONE: Removed "Play as" / "Choose for Battle" buttons from Champion 24-Card Decks in CollectionScreen.tsx and updated src/App.tsx
+STARTED: Remove Collection and Settings header buttons from Play screens in src/App.tsx
+DONE: Removed Collection and Settings header buttons from Play screens in src/App.tsx
+STARTED: Auto-end turn in battle when player cannot throw any more cards, auto-continue quiz modal 2s after answer without confirmation button, and remove End Turn button at start of turn when no card is used
+DONE: Added automatic turn ending in BattleScreen.tsx when player cannot throw any more cards, added 2-second auto-continue in QuizCanvasModal.tsx without confirmation button, and removed End Turn button at the start of each turn when no card is used
+STARTED: Replace card Peek button with 3-second hover trigger to show bound question
+DONE: Replaced card Peek button in NineSliceCard.tsx with a 3-second hover timer trigger to display the bound question modal
+STARTED: Simplify TitleScreen to only show the Main Menu box and ensure it fits in a single non-scrollable screen on mobile landscape
+DONE: Simplified TitleScreen.tsx to only render the Main Menu box inside a non-scrollable h-dvh viewport
+STARTED: Remove redundant bottom VS matchup summary box (div:nth-of-type(3)) from CharacterSelectScreen.tsx and LobbyScreen.tsx
+DONE: Removed redundant bottom VS matchup summary box (div:nth-of-type(3)) from CharacterSelectScreen.tsx and LobbyScreen.tsx
+STARTED: Remove Voice type debug span text inside character sprite stage buttons in CharacterSelectScreen.tsx
+DONE: Removed Voice type debug span text inside character sprite stage buttons in CharacterSelectScreen.tsx
+STARTED: Decrease card hover question preview delay from 3s to 1s and dismiss QuestionPeekModal when clicking outside the box (remove Close button)
+DONE: Decreased card hover question preview delay from 3s to 1s in NineSliceCard.tsx and updated QuestionPeekModal in QuizCanvasModal.tsx to dismiss when clicking outside the box (removed Close button)
+STARTED: Replace grayish .flat-input styling and low-contrast text/placeholder colors in src/index.css and src/ui/screens/LobbyScreen.tsx with high-contrast dark slot and bright text
+DONE: Replaced grayish .flat-input styling and low-contrast text/placeholder colors in src/index.css and src/ui/screens/LobbyScreen.tsx with high-contrast dark slot and bright text
+STARTED: Remove Firestore mention in LobbyScreen.tsx header subtitle and remove the "Play Offline / Local" button from the Host Online Room box
+DONE: Removed Firestore mention in LobbyScreen.tsx header subtitle and removed the "Play Offline / Local" button from the Host Online Room box
+STARTED: Remove top header bar on Settings screen and add Main Menu button on the right of the Game Settings & Audio Mixer header div
+DONE: Removed top header bar on Settings screen and added Main Menu button on the right of the Game Settings & Audio Mixer header div
+STARTED: Remove top header bar on Collection screen and place Main Menu button on the left side of 80-Card Catalog in CollectionScreen.tsx
+DONE: Removed top header bar on Collection screen and placed Main Menu button on the left side of 80-Card Catalog in CollectionScreen.tsx
+STARTED: Remove "Test Voice" buttons from fighter cards in CharacterSelectScreen.tsx
+DONE: Removed "Test Voice" buttons from fighter cards in CharacterSelectScreen.tsx
+STARTED: Remove top header bar on Character Select screen and add Main Menu button inside the Select Your Champion header box
+DONE: Removed top header bar on Character Select screen and added Main Menu button inside the Select Your Champion header box
+STARTED: Remove top header bar on Lobby screen and add Back to Fighters button inside the Match Lobby header box
+DONE: Removed top header bar on Lobby screen and added Back to Fighters button inside the Match Lobby header box
+STARTED: Add Attributes section to CollectionScreen.tsx showing all buffs, debuffs, permanent powers, and card mechanics (Exhaust, Draw, Block, etc.)
+DONE: Added Attributes section to CollectionScreen.tsx showing all 40 card mechanics, permanent powers, buffs, and debuffs
+STARTED: Remove tick and plus icons from 160 STEM Question Bank and Attributes tab buttons in CollectionScreen.tsx so all tab buttons match
+DONE: Removed tick and plus icons from 160 STEM Question Bank and Attributes tab buttons in CollectionScreen.tsx so all tab buttons match
+STARTED: Change Character Voices Volume slider fillTone from cream to red in SettingsModal.tsx so it contrasts clearly with the slider track background
+DONE: Changed Character Voices Volume slider fillTone from cream to red in SettingsModal.tsx so it contrasts clearly with the slider track background
+STARTED: Overhaul Battle Arena: remove health tags inside map, remove both top header boxes on battle screen, add single top-right Pause Menu button (Main Menu, Split Camera, Forfeit), and prompt Player vs Bot vs 1v1 Local before joining the game
+DONE: Overhauled Battle Arena: removed health tags inside map, removed both top header boxes on battle screen, added single top-right Pause Menu button (Main Menu, Split Camera, Forfeit), and prompted Player vs Bot vs 1v1 Local before joining the game
+STARTED: Position Pause button at the top-right corner inside the battle map container instead of fixed to the viewport screen
+DONE: Positioned Pause button at the top-right corner inside the battle map container instead of fixed to the viewport screen
+STARTED: Move Finished Match / Forfeit banner from above the map into a centered pop-up modal overlay in front of the map in BattleScreen.tsx
+DONE: Moved Finished Match / Forfeit banner from above the map into a centered pop-up modal overlay in front of the map in BattleScreen.tsx
+STARTED: Remove viewing card's bound question from BattleScreen and move the player's hand cards to float in a fanned arc at the middle-bottom of the battle map (smaller scale so characters are never obstructed)
+DONE: Removed viewing card's bound question from BattleScreen and moved the player's hand cards to float in a fanned arc at the middle-bottom of the battle map (smaller scale so characters are never obstructed)
+STARTED: Make floating battle hand cards 20% bigger (scaleMultiplier 0.75 -> 0.9) and replace the bulky .flat-select-reticle outline on selected cards with a clean, thin highlight
+DONE: Made floating battle hand cards 20% bigger (scaleMultiplier 0.75 -> 0.9) and replaced the bulky .flat-select-reticle outline on selected cards with a clean, thin highlight
+STARTED: Restore BattleArenaStage map container to full width (remove max-w-[360px] restriction in BattleArenaStage.tsx) so the map box has its original full width and height
+DONE: Restored BattleArenaStage map container to full width (removed max-w-[360px] restriction in BattleArenaStage.tsx) so the map box has its original full width and height
+STARTED: Move Clear, Throw, and Skip Turn / End Turn buttons to the bottom-right corner of the battle map in BattleScreen.tsx so hovered/selected cards never obstruct them
+DONE: Moved Clear, Throw, and Skip Turn / End Turn buttons to the bottom-right corner of the battle map in BattleScreen.tsx so hovered/selected cards never obstruct them
+STARTED: Remove the Clear button from the bottom-right turn action controls in BattleScreen.tsx
+DONE: Removed the Clear button from the bottom-right turn action controls in BattleScreen.tsx
+STARTED: Add character name above each character and health bar (without numbers) + active turn indicator below each character inside the map; move local player's Mana count and Draw/Discard/Exhaust buttons to the bottom-left corner of the map; hide opponent's mana, draw, discard, and exhaust
+DONE: Added character name above each character and health bar (without numbers) + active turn indicator below each character inside the map; moved local player's Mana count and Draw/Discard/Exhaust buttons to the bottom-left corner of the map; hid opponent's mana, draw, discard, and exhaust
+STARTED: Move Pause menu button to top-center of map; place P1 and P2 Health, Mana, and Status Effects at top-left and top-right of map; move ACTIVE TURN indicator on top of character name above their head and remove bottom character health/status bars; keep only Draw/Discard/Exhaust buttons at bottom-left
+DONE: Moved Pause menu button to top-center of map; placed P1 and P2 Health, Mana, and Status Effects at top-left and top-right of map; moved ACTIVE TURN indicator on top of character name above their head and removed bottom character health/status bars; kept only Draw/Discard/Exhaust buttons at bottom-left
+STARTED: Remove the border around BattleArenaStage and make the battle map cover the whole screen; move corner HUD elements (top-left, top-right, bottom-left, bottom-right, and top-center pause) slightly inward so nothing gets cropped or obstructed
+DONE: Removed the border around BattleArenaStage and made the battle map cover the whole screen; moved corner HUD elements (top-left, top-right, bottom-left, bottom-right, and top-center pause) slightly inward so nothing gets cropped or obstructed
+STARTED: Fix Mana 5/5 text overflowing outside the top-left and top-right HUD boxes, and add a blue shield bar overlay directly on top of the health bar whenever a player gains shield/block
+DONE: Fixed Mana 5/5 text overflowing outside the top-left and top-right HUD boxes, and added a blue shield bar overlay directly on top of the health bar whenever a player gains shield/block
+STARTED: Remove the 9-slice border-image subpixel grid lines on .flat-btn-bevel, .flat-btn-round, and .flat-banner-offset-bl (Pause button and ACTIVE TURN indicator) in src/index.css
+DONE: Removed the 9-slice border-image subpixel grid lines on .flat-btn-bevel, .flat-btn-round, and .flat-banner-offset-bl (Pause button and ACTIVE TURN indicator) in src/index.css
+STARTED: Center the Pause text horizontally and vertically inside the Pause button, and add instant hover and click tooltips for all status effect badges in StatusBadges.tsx
+DONE: Centered the Pause text horizontally and vertically inside the Pause button, and added instant hover and click tooltips for all status effect badges in StatusBadges.tsx
+STARTED: Replace CreditsScreen.tsx content with the 6 itch.io asset attribution links and team credits (Lead developer: Tahsinnotfound, Developer: ifiwerenahiyan, Beta tester: Herman13)
+DONE: Replaced CreditsScreen.tsx content with the 6 itch.io asset attribution links and team credits (Lead developer: Tahsinnotfound, Developer: ifiwerenahiyan, Beta tester: Herman13)
+STARTED: Remove DebugGalleryScreen.tsx and debug route completely; remove top header bar on Credits screen and move the Main Menu button into the Credits header box in CreditsScreen.tsx
+DONE: Removed DebugGalleryScreen.tsx and debug route completely; removed top header bar on Credits screen and moved the Main Menu button into the Credits header box in CreditsScreen.tsx
+STARTED: Expand the STEM question bank in src/content/questions.ts from 160 to 320 questions (20 per subject-rarity tier with strict difficulty scaling for Normal 8s, Uncommon 15s, Epic 25s, and Legendary 40s) and update CollectionScreen.tsx labels to 320
+DONE: Expanded the STEM question bank in src/content/questions.ts from 160 to 320 questions (20 per subject-rarity tier with strict difficulty scaling for Normal 8s, Uncommon 15s, Epic 25s, and Legendary 40s) and updated CollectionScreen.tsx labels to 320
+STARTED: Add per-question Explanation toggle button and explanation display inside the STEM Question Bank tab in CollectionScreen.tsx
+DONE: Added per-question Explanation toggle button and explanation display inside the STEM Question Bank tab in CollectionScreen.tsx
+STARTED: Install katex and @types/katex and implement MathText rendering across CollectionScreen and QuizCanvasModal so all mathematical and scientific formulas render cleanly with KaTeX
+DONE: Installed katex and @types/katex and implemented MathText rendering across CollectionScreen and QuizCanvasModal so all mathematical and scientific formulas render cleanly with KaTeX
+STARTED: Render mathematical divisions as standard vertical KaTeX fractions (\frac{x}{y}) instead of inline slash x/y across MathText and question bank
+DONE: Rendered mathematical divisions as standard vertical KaTeX fractions (\frac{x}{y}) instead of inline slash x/y across MathText and question bank
+STARTED: Increase question, choice, explanation, and KaTeX math/fraction font sizes across CollectionScreen, QuizCanvasModal, MathText, and index.css for better readability
+DONE: Increased question, choice, explanation, and KaTeX math/fraction font sizes (including \displaystyle fractions and enlarged super/subscripts) across CollectionScreen, QuizCanvasModal, MathText, and index.css
+STARTED: Add English/Bangla translation toggle on Main Menu bottom-left and localize UI, card middle descriptions, attribute explanations, and 320 question prompts/explanations (preserving English numbers and formulas)
+DONE: Added English/Bangla translation toggle on Main Menu bottom-left and localized UI, card middle descriptions, attribute explanations, and 320 question prompts/explanations (preserving English numbers and formulas)
+STARTED: Calculate the outcome of 500 battles, iteratively increase health for weaker characters, and re-run 500-battle simulations until all 4 characters have equal win rates
+DONE: Calculated 500-battle simulation outcomes (initially Samurai 145, Knight 127, Dark Ninja 126, Reaper 102 at 80 HP), iteratively increased weaker characters' starting HP (Samurai 80 HP, Knight 88 HP, Dark Ninja 88 HP, Reaper 101 HP) until all 4 characters reached equal 50% win rates across 500 battles (Samurai 125, Reaper 125, Knight 126, Dark Ninja 124), and updated CharacterSelectScreen and unit tests
+STARTED: Show failed questions along with their correct answers and explanations on the match result screen
+DONE: Added quizHistory tracking in GameState and FailedQuestionsReview component on both the BattleScreen finished match modal and ResultScreen so players can see all failed questions, their selected/timeout answers, correct answers, and KaTeX explanations (in English and Bangla)

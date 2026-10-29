@@ -1,0 +1,6 @@
+STARTED: Phase 0 Step 1: Audit assets
+DONE: Phase 0 Step 1: Audit assets (noted Drive link requires auth / not yet in repo; existing /public is slaytheweb assets to be dropped)
+STARTED: Phase 0 Step 2: Audit reference and write docs/REFERENCE_MAP.md
+DONE: Phase 0 Step 2: Audit reference and write docs/REFERENCE_MAP.md (97 total tests: 92 passing, 2 skipped, 3 todo)
+STARTED: Phase 0 Step 3-6: Restate brief, check Section 6 role compliance, log contradictions/defaults, report capabilities, confirm phase plan
+DONE: Phase 0 Step 3-6: Restate brief, check Section 6 role compliance, log contradictions/defaults, report capabilities, confirm phase plan

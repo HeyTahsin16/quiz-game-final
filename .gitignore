@@ -1,0 +1,21 @@
+# system
+*.swp
+.DS_Store
+
+# package managers
+node_modules/
+yarn-error.log
+yarn.lock
+
+# build & environment
+coverage/
+dist/
+dev-dist/
+.vercel/
+.astro/
+.env
+.env.local
+firebase-applet-config.json
+.aistudio/
+.cursor/
+.claude/

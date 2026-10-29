@@ -1,0 +1,10 @@
+STARTED: Fix Astro dev server configuration and port 3000 binding
+DONE: Fix Astro dev server configuration and port 3000 binding
+STARTED: Phase 1 Task 1: Archive reference code to reference/slaytheweb and set up React + TypeScript + Vite
+DONE: Phase 1 Task 1: Archive reference code to reference/slaytheweb and set up React + TypeScript + Vite
+STARTED: Phase 1 Task 2: Generate pixel-art 9-slice frames, 4 character sprite sheets, and 3 male voice sets in /public/assets/ and write docs/ASSETS.md
+DONE: Phase 1 Task 2: Generate pixel-art 9-slice frames, 4 character sprite sheets, and 3 male voice sets in /public/assets/ and write docs/ASSETS.md
+STARTED: Phase 1 Task 3: Build 9-slice cache, NineSliceCard, PixelSprite, and Web Audio manager with Dark Ninja muffle
+DONE: Phase 1 Task 3: Build 9-slice cache, NineSliceCard, PixelSprite, and Web Audio manager with Dark Ninja muffle
+STARTED: Phase 1 Task 4: Build #/debug gallery, Character Select, Title/Lobby/Battle/Result screen shells, and routing shell
+DONE: Phase 1 Task 4: Build #/debug gallery, Character Select, Title/Lobby/Battle/Result screen shells, and routing shell

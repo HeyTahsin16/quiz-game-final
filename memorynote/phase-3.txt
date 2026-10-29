@@ -1,0 +1,6 @@
+STARTED: Phase 3 Task 1: Build 160-question STEM quiz bank (src/content/questions.ts) covering all 16 (subject, rarity) cells and bind unique questions to deck cards at battle start
+DONE: Phase 3 Task 1: Build 160-question STEM quiz bank (src/content/questions.ts) covering all 16 (subject, rarity) cells and bind unique questions to deck cards at battle start
+STARTED: Phase 3 Task 2: Balance-test the 4 fixed 24-card character decks across all pairings, write docs/DECKS.md, and restore docs/ASSETS.md & docs/REFERENCE_MAP.md
+DONE: Phase 3 Task 2: Balance-test the 4 fixed 24-card character decks across all pairings, write docs/DECKS.md, and restore docs/ASSETS.md & docs/REFERENCE_MAP.md
+STARTED: Phase 3 Task 3: Write comprehensive unit tests for all 80 catalog cards (base + upgraded + reduced), all 4 deck recipes, and the 160-question STEM quiz bank
+DONE: Phase 3 Task 3: Write comprehensive unit tests for all 80 catalog cards (base + upgraded + reduced), all 4 deck recipes, and the 160-question STEM quiz bank

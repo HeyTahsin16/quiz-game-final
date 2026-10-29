@@ -1,0 +1,143 @@
+{
+	"entities": {
+		"Room": {
+			"title": "Room",
+			"description": "A 1v1 Quiz Duel multiplayer match room identified by a 6-character uppercase room code, storing seated players, per-tab seat IDs, heartbeats, and the deterministic action log.",
+			"type": "object",
+			"properties": {
+				"roomCode": {
+					"type": "string",
+					"description": "6-character uppercase alphanumeric room code matching the document ID.",
+					"minLength": 6,
+					"maxLength": 6,
+					"pattern": "^[A-Z0-9]{6}$"
+				},
+				"hostUid": {
+					"type": "string",
+					"description": "Firebase Auth UID of the room creator (Player 1 / Seat 1).",
+					"minLength": 1,
+					"maxLength": 128,
+					"pattern": "^[a-zA-Z0-9_\\-]+$"
+				},
+				"hostSeatId": {
+					"type": "string",
+					"description": "Per-tab seat identifier for Seat 1 so one account can test across two tabs.",
+					"minLength": 0,
+					"maxLength": 64
+				},
+				"hostName": {
+					"type": "string",
+					"description": "Display name of the room creator.",
+					"minLength": 1,
+					"maxLength": 64
+				},
+				"hostCharacter": {
+					"type": "string",
+					"description": "Character selected by Player 1.",
+					"enum": ["dark-ninja", "reaper", "samurai", "knight"],
+					"maxLength": 20
+				},
+				"guestUid": {
+					"type": "string",
+					"description": "Firebase Auth UID of the joining opponent (Player 2 / Seat 2), or empty string while waiting.",
+					"minLength": 0,
+					"maxLength": 128
+				},
+				"guestSeatId": {
+					"type": "string",
+					"description": "Per-tab seat identifier for Seat 2 so one account can test across two tabs.",
+					"minLength": 0,
+					"maxLength": 64
+				},
+				"guestName": {
+					"type": "string",
+					"description": "Display name of the joining opponent, or empty string while waiting.",
+					"minLength": 0,
+					"maxLength": 64
+				},
+				"guestCharacter": {
+					"type": "string",
+					"description": "Character selected by Player 2.",
+					"enum": ["dark-ninja", "reaper", "samurai", "knight"],
+					"maxLength": 20
+				},
+				"seed": {
+					"type": "integer",
+					"description": "Deterministic Mulberry32 PRNG seed for deck shuffle and question binding."
+				},
+				"status": {
+					"type": "string",
+					"description": "Current lifecycle status of the room.",
+					"enum": ["waiting", "playing", "finished"],
+					"maxLength": 16
+				},
+				"actionCount": {
+					"type": "integer",
+					"description": "Number of serialized engine actions in actionLog."
+				},
+				"actionLog": {
+					"type": "array",
+					"description": "Bounded list (max 500) of plain serializable GameAction map objects replayed by both clients."
+				},
+				"hostLastSeenMs": {
+					"type": "integer",
+					"description": "Epoch milliseconds of Player 1's most recent heartbeat or action (60s disconnect forfeit window)."
+				},
+				"guestLastSeenMs": {
+					"type": "integer",
+					"description": "Epoch milliseconds of Player 2's most recent heartbeat or action (60s disconnect forfeit window)."
+				},
+				"winnerSeat": {
+					"type": "integer",
+					"description": "0 while in progress or if ended in a draw at the 500-action cap, 1 if Player 1 won, 2 if Player 2 won."
+				},
+				"forfeitedBySeat": {
+					"type": "integer",
+					"description": "0 if normal finish, 1 if Player 1 forfeited/disconnected, 2 if Player 2 forfeited/disconnected."
+				},
+				"rematchCount": {
+					"type": "integer",
+					"description": "Counter incremented each time a finished match is reset for a rematch."
+				},
+				"createdAt": {
+					"type": "string",
+					"format": "date-time",
+					"description": "Server timestamp when the room was created."
+				},
+				"updatedAt": {
+					"type": "string",
+					"format": "date-time",
+					"description": "Server timestamp when the room was last updated."
+				}
+			},
+			"required": [
+				"roomCode",
+				"hostUid",
+				"hostName",
+				"hostCharacter",
+				"guestUid",
+				"guestName",
+				"guestCharacter",
+				"seed",
+				"status",
+				"actionCount",
+				"actionLog",
+				"hostLastSeenMs",
+				"guestLastSeenMs",
+				"winnerSeat",
+				"forfeitedBySeat",
+				"rematchCount",
+				"createdAt",
+				"updatedAt"
+			]
+		}
+	},
+	"firestore": {
+		"/rooms/{roomCode}": {
+			"schema": {
+				"$ref": "#/entities/Room"
+			},
+			"description": "Multiplayer 1v1 match rooms keyed by 6-character room code."
+		}
+	}
+}

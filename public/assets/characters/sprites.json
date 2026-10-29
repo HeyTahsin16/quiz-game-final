@@ -1,0 +1,364 @@
+{
+	"frameWidth": 64,
+	"frameHeight": 64,
+	"frameCount": 8,
+	"fps": 8,
+	"defaultFacing": "right",
+	"characters": {
+		"dark-ninja": {
+			"file": "/assets/characters/dark-ninja/idle/01.png",
+			"frames": 8,
+			"frameWidth": 64,
+			"frameHeight": 64,
+			"animations": {
+				"idle": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 8,
+					"fps": 8,
+					"loop": true,
+					"frames": [
+						"/assets/characters/dark-ninja/idle/01.png",
+						"/assets/characters/dark-ninja/idle/02.png",
+						"/assets/characters/dark-ninja/idle/03.png",
+						"/assets/characters/dark-ninja/idle/04.png",
+						"/assets/characters/dark-ninja/idle/05.png",
+						"/assets/characters/dark-ninja/idle/06.png",
+						"/assets/characters/dark-ninja/idle/07.png",
+						"/assets/characters/dark-ninja/idle/08.png"
+					]
+				},
+				"attack": {
+					"frameWidth": 96,
+					"frameHeight": 64,
+					"frameCount": 6,
+					"fps": 10,
+					"loop": false,
+					"frames": [
+						"/assets/characters/dark-ninja/attack/01.png",
+						"/assets/characters/dark-ninja/attack/02.png",
+						"/assets/characters/dark-ninja/attack/03.png",
+						"/assets/characters/dark-ninja/attack/04.png",
+						"/assets/characters/dark-ninja/attack/05.png",
+						"/assets/characters/dark-ninja/attack/06.png"
+					]
+				},
+				"hurt": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 3,
+					"fps": 8,
+					"loop": false,
+					"frames": [
+						"/assets/characters/dark-ninja/hurt/01.png",
+						"/assets/characters/dark-ninja/hurt/02.png",
+						"/assets/characters/dark-ninja/hurt/03.png"
+					]
+				},
+				"death": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 15,
+					"fps": 10,
+					"loop": false,
+					"frames": [
+						"/assets/characters/dark-ninja/death/01.png",
+						"/assets/characters/dark-ninja/death/02.png",
+						"/assets/characters/dark-ninja/death/03.png",
+						"/assets/characters/dark-ninja/death/04.png",
+						"/assets/characters/dark-ninja/death/05.png",
+						"/assets/characters/dark-ninja/death/06.png",
+						"/assets/characters/dark-ninja/death/07.png",
+						"/assets/characters/dark-ninja/death/08.png",
+						"/assets/characters/dark-ninja/death/09.png",
+						"/assets/characters/dark-ninja/death/10.png",
+						"/assets/characters/dark-ninja/death/11.png",
+						"/assets/characters/dark-ninja/death/12.png",
+						"/assets/characters/dark-ninja/death/13.png",
+						"/assets/characters/dark-ninja/death/14.png",
+						"/assets/characters/dark-ninja/death/15.png"
+					]
+				}
+			}
+		},
+		"reaper": {
+			"file": "/assets/characters/reaper/idle/01.png",
+			"frames": 5,
+			"frameWidth": 64,
+			"frameHeight": 64,
+			"fadeOnDeath": true,
+			"animations": {
+				"idle": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 5,
+					"fps": 8,
+					"loop": true,
+					"frames": [
+						"/assets/characters/reaper/idle/01.png",
+						"/assets/characters/reaper/idle/02.png",
+						"/assets/characters/reaper/idle/03.png",
+						"/assets/characters/reaper/idle/04.png",
+						"/assets/characters/reaper/idle/05.png"
+					]
+				},
+				"idle2": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 5,
+					"fps": 8,
+					"loop": true,
+					"frames": [
+						"/assets/characters/reaper/idle2/01.png",
+						"/assets/characters/reaper/idle2/02.png",
+						"/assets/characters/reaper/idle2/03.png",
+						"/assets/characters/reaper/idle2/04.png",
+						"/assets/characters/reaper/idle2/05.png"
+					]
+				},
+				"turnStart": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 10,
+					"fps": 10,
+					"loop": false,
+					"frames": [
+						"/assets/characters/reaper/turn-start/01.png",
+						"/assets/characters/reaper/turn-start/02.png",
+						"/assets/characters/reaper/turn-start/03.png",
+						"/assets/characters/reaper/turn-start/04.png",
+						"/assets/characters/reaper/turn-start/05.png",
+						"/assets/characters/reaper/turn-start/06.png",
+						"/assets/characters/reaper/turn-start/07.png",
+						"/assets/characters/reaper/turn-start/08.png",
+						"/assets/characters/reaper/turn-start/09.png",
+						"/assets/characters/reaper/turn-start/10.png"
+					]
+				},
+				"turnEnd": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 10,
+					"fps": 10,
+					"loop": false,
+					"frames": [
+						"/assets/characters/reaper/turn-end/01.png",
+						"/assets/characters/reaper/turn-end/02.png",
+						"/assets/characters/reaper/turn-end/03.png",
+						"/assets/characters/reaper/turn-end/04.png",
+						"/assets/characters/reaper/turn-end/05.png",
+						"/assets/characters/reaper/turn-end/06.png",
+						"/assets/characters/reaper/turn-end/07.png",
+						"/assets/characters/reaper/turn-end/08.png",
+						"/assets/characters/reaper/turn-end/09.png",
+						"/assets/characters/reaper/turn-end/10.png"
+					]
+				},
+				"attack": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 10,
+					"fps": 12,
+					"loop": false,
+					"frames": [
+						"/assets/characters/reaper/attack/01.png",
+						"/assets/characters/reaper/attack/02.png",
+						"/assets/characters/reaper/attack/03.png",
+						"/assets/characters/reaper/attack/04.png",
+						"/assets/characters/reaper/attack/05.png",
+						"/assets/characters/reaper/attack/06.png",
+						"/assets/characters/reaper/attack/07.png",
+						"/assets/characters/reaper/attack/08.png",
+						"/assets/characters/reaper/attack/09.png",
+						"/assets/characters/reaper/attack/10.png"
+					]
+				},
+				"hurt": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 4,
+					"fps": 8,
+					"loop": false,
+					"frames": [
+						"/assets/characters/reaper/hurt/01.png",
+						"/assets/characters/reaper/hurt/02.png",
+						"/assets/characters/reaper/hurt/03.png",
+						"/assets/characters/reaper/hurt/04.png"
+					]
+				},
+				"death": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 5,
+					"fps": 8,
+					"loop": false,
+					"frames": [
+						"/assets/characters/reaper/idle2/01.png",
+						"/assets/characters/reaper/idle2/02.png",
+						"/assets/characters/reaper/idle2/03.png",
+						"/assets/characters/reaper/idle2/04.png",
+						"/assets/characters/reaper/idle2/05.png"
+					]
+				}
+			}
+		},
+		"samurai": {
+			"file": "/assets/characters/samurai/idle/01.png",
+			"frames": 10,
+			"frameWidth": 64,
+			"frameHeight": 64,
+			"animations": {
+				"idle": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 10,
+					"fps": 8,
+					"loop": true,
+					"frames": [
+						"/assets/characters/samurai/idle/01.png",
+						"/assets/characters/samurai/idle/02.png",
+						"/assets/characters/samurai/idle/03.png",
+						"/assets/characters/samurai/idle/04.png",
+						"/assets/characters/samurai/idle/05.png",
+						"/assets/characters/samurai/idle/06.png",
+						"/assets/characters/samurai/idle/07.png",
+						"/assets/characters/samurai/idle/08.png",
+						"/assets/characters/samurai/idle/09.png",
+						"/assets/characters/samurai/idle/10.png"
+					]
+				},
+				"attack": {
+					"frameWidth": 96,
+					"frameHeight": 64,
+					"frameCount": 7,
+					"fps": 10,
+					"loop": false,
+					"frames": [
+						"/assets/characters/samurai/attack/01.png",
+						"/assets/characters/samurai/attack/02.png",
+						"/assets/characters/samurai/attack/03.png",
+						"/assets/characters/samurai/attack/04.png",
+						"/assets/characters/samurai/attack/05.png",
+						"/assets/characters/samurai/attack/06.png",
+						"/assets/characters/samurai/attack/07.png"
+					]
+				},
+				"hurt": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 4,
+					"fps": 8,
+					"loop": false,
+					"frames": [
+						"/assets/characters/samurai/hurt/01.png",
+						"/assets/characters/samurai/hurt/02.png",
+						"/assets/characters/samurai/hurt/03.png",
+						"/assets/characters/samurai/hurt/04.png"
+					]
+				},
+				"death": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 4,
+					"fps": 8,
+					"loop": false,
+					"frames": [
+						"/assets/characters/samurai/hurt/04.png",
+						"/assets/characters/samurai/hurt/03.png",
+						"/assets/characters/samurai/hurt/02.png",
+						"/assets/characters/samurai/hurt/01.png"
+					]
+				}
+			}
+		},
+		"knight": {
+			"file": "/assets/characters/knight/idle/01.png",
+			"frames": 14,
+			"frameWidth": 64,
+			"frameHeight": 64,
+			"animations": {
+				"idle": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 14,
+					"fps": 10,
+					"loop": true,
+					"frames": [
+						"/assets/characters/knight/idle/01.png",
+						"/assets/characters/knight/idle/02.png",
+						"/assets/characters/knight/idle/03.png",
+						"/assets/characters/knight/idle/04.png",
+						"/assets/characters/knight/idle/05.png",
+						"/assets/characters/knight/idle/06.png",
+						"/assets/characters/knight/idle/07.png",
+						"/assets/characters/knight/idle/08.png",
+						"/assets/characters/knight/idle/09.png",
+						"/assets/characters/knight/idle/10.png",
+						"/assets/characters/knight/idle/11.png",
+						"/assets/characters/knight/idle/12.png",
+						"/assets/characters/knight/idle/13.png",
+						"/assets/characters/knight/idle/14.png"
+					]
+				},
+				"attack": {
+					"frameWidth": 96,
+					"frameHeight": 64,
+					"frameCount": 8,
+					"fps": 12,
+					"loop": false,
+					"frames": [
+						"/assets/characters/knight/attack/01.png",
+						"/assets/characters/knight/attack/02.png",
+						"/assets/characters/knight/attack/03.png",
+						"/assets/characters/knight/attack/04.png",
+						"/assets/characters/knight/attack/05.png",
+						"/assets/characters/knight/attack/06.png",
+						"/assets/characters/knight/attack/07.png",
+						"/assets/characters/knight/attack/08.png"
+					]
+				},
+				"hurt": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 8,
+					"fps": 10,
+					"loop": false,
+					"frames": [
+						"/assets/characters/knight/hurt/01.png",
+						"/assets/characters/knight/hurt/02.png",
+						"/assets/characters/knight/hurt/03.png",
+						"/assets/characters/knight/hurt/04.png",
+						"/assets/characters/knight/hurt/05.png",
+						"/assets/characters/knight/hurt/06.png",
+						"/assets/characters/knight/hurt/07.png",
+						"/assets/characters/knight/hurt/08.png"
+					]
+				},
+				"death": {
+					"frameWidth": 64,
+					"frameHeight": 64,
+					"frameCount": 15,
+					"fps": 10,
+					"loop": false,
+					"frames": [
+						"/assets/characters/knight/death/01.png",
+						"/assets/characters/knight/death/02.png",
+						"/assets/characters/knight/death/03.png",
+						"/assets/characters/knight/death/04.png",
+						"/assets/characters/knight/death/05.png",
+						"/assets/characters/knight/death/06.png",
+						"/assets/characters/knight/death/07.png",
+						"/assets/characters/knight/death/08.png",
+						"/assets/characters/knight/death/09.png",
+						"/assets/characters/knight/death/10.png",
+						"/assets/characters/knight/death/11.png",
+						"/assets/characters/knight/death/12.png",
+						"/assets/characters/knight/death/13.png",
+						"/assets/characters/knight/death/14.png",
+						"/assets/characters/knight/death/15.png"
+					]
+				}
+			}
+		}
+	}
+}

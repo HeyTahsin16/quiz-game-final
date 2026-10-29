@@ -1,0 +1,256 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Pillar 1: Global Default-Deny Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Reusable Hardened Primitives
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidRoomId(roomCode) {
+      return roomCode is string && roomCode.size() == 6 && roomCode.matches('^[A-Z0-9]{6}$');
+    }
+
+    function isValidCharacter(charId) {
+      return charId is string && charId.size() <= 20 && charId in ['dark-ninja', 'reaper', 'samurai', 'knight'];
+    }
+
+    // Pillar 2 & 5: Validation Blueprint for Room Entity
+    function isValidRoom(data) {
+      return data.keys().hasAll([
+        'roomCode',
+        'hostUid',
+        'hostName',
+        'hostCharacter',
+        'guestUid',
+        'guestName',
+        'guestCharacter',
+        'seed',
+        'status',
+        'actionCount',
+        'actionLog',
+        'hostLastSeenMs',
+        'guestLastSeenMs',
+        'winnerSeat',
+        'forfeitedBySeat',
+        'rematchCount',
+        'createdAt',
+        'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'roomCode',
+        'hostUid',
+        'hostSeatId',
+        'hostName',
+        'hostCharacter',
+        'guestUid',
+        'guestSeatId',
+        'guestName',
+        'guestCharacter',
+        'seed',
+        'status',
+        'actionCount',
+        'actionLog',
+        'hostLastSeenMs',
+        'guestLastSeenMs',
+        'winnerSeat',
+        'forfeitedBySeat',
+        'rematchCount',
+        'createdAt',
+        'updatedAt'
+      ]) &&
+      isValidRoomId(data.roomCode) &&
+      isValidId(data.hostUid) &&
+      (!('hostSeatId' in data) || (data.hostSeatId is string && data.hostSeatId.size() <= 64)) &&
+      data.hostName is string && data.hostName.size() >= 1 && data.hostName.size() <= 64 &&
+      isValidCharacter(data.hostCharacter) &&
+      data.guestUid is string && data.guestUid.size() <= 128 &&
+      (data.guestUid.size() == 0 || isValidId(data.guestUid)) &&
+      (!('guestSeatId' in data) || (data.guestSeatId is string && data.guestSeatId.size() <= 64)) &&
+      data.guestName is string && data.guestName.size() <= 64 &&
+      isValidCharacter(data.guestCharacter) &&
+      data.seed is int && data.seed >= 1 && data.seed <= 2147483647 &&
+      data.status is string && data.status.size() <= 16 && data.status in ['waiting', 'playing', 'finished'] &&
+      data.actionCount is int && data.actionCount >= 0 && data.actionCount <= 500 &&
+      data.actionLog is list && data.actionLog.size() <= 500 &&
+      (data.actionLog.size() == 0 || data.actionLog[0] is map) &&
+      data.hostLastSeenMs is int && data.hostLastSeenMs >= 0 &&
+      data.guestLastSeenMs is int && data.guestLastSeenMs >= 0 &&
+      data.winnerSeat is int && data.winnerSeat in [0, 1, 2] &&
+      data.forfeitedBySeat is int && data.forfeitedBySeat in [0, 1, 2] &&
+      data.rematchCount is int && data.rematchCount >= 0 && data.rematchCount <= 100 &&
+      data.createdAt is timestamp &&
+      data.updatedAt is timestamp;
+    }
+
+    // Named Action Helpers for /rooms/{roomCode} Updates
+    function isImmutableRoomHeaderPreserved() {
+      return incoming().roomCode == existing().roomCode &&
+        incoming().hostUid == existing().hostUid &&
+        incoming().hostName == existing().hostName &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time;
+    }
+
+    function isHostLobbyUpdateAction() {
+      return existing().status == 'waiting' &&
+        request.auth.uid == existing().hostUid &&
+        incoming().status == 'waiting' &&
+        incoming().guestUid == '' &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'hostCharacter',
+          'hostSeatId',
+          'seed',
+          'actionCount',
+          'actionLog',
+          'hostLastSeenMs',
+          'updatedAt'
+        ]);
+    }
+
+    function isGuestJoinAction() {
+      return existing().status == 'waiting' &&
+        existing().guestUid == '' &&
+        incoming().guestUid == request.auth.uid &&
+        incoming().guestName.size() >= 1 &&
+        incoming().status == 'playing' &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'guestUid',
+          'guestSeatId',
+          'guestName',
+          'guestCharacter',
+          'status',
+          'actionCount',
+          'actionLog',
+          'guestLastSeenMs',
+          'updatedAt'
+        ]);
+    }
+
+    function isHostHeartbeatAction() {
+      return existing().status == 'playing' &&
+        request.auth.uid == existing().hostUid &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'hostLastSeenMs',
+          'updatedAt'
+        ]);
+    }
+
+    function isGuestHeartbeatAction() {
+      return existing().status == 'playing' &&
+        request.auth.uid == existing().guestUid &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'guestLastSeenMs',
+          'updatedAt'
+        ]);
+    }
+
+    function isMatchPlayAction() {
+      return existing().status == 'playing' &&
+        (request.auth.uid == existing().hostUid || request.auth.uid == existing().guestUid) &&
+        incoming().guestUid == existing().guestUid &&
+        incoming().seed == existing().seed &&
+        incoming().status in ['playing', 'finished'] &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'status',
+          'actionCount',
+          'actionLog',
+          'hostLastSeenMs',
+          'guestLastSeenMs',
+          'winnerSeat',
+          'forfeitedBySeat',
+          'updatedAt'
+        ]);
+    }
+
+    function isRematchAction() {
+      return existing().status == 'finished' &&
+        (request.auth.uid == existing().hostUid || request.auth.uid == existing().guestUid) &&
+        incoming().guestUid == existing().guestUid &&
+        incoming().status == 'playing' &&
+        incoming().winnerSeat == 0 &&
+        incoming().forfeitedBySeat == 0 &&
+        incoming().rematchCount == existing().rematchCount + 1 &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'hostCharacter',
+          'guestCharacter',
+          'seed',
+          'status',
+          'actionCount',
+          'actionLog',
+          'hostLastSeenMs',
+          'guestLastSeenMs',
+          'winnerSeat',
+          'forfeitedBySeat',
+          'rematchCount',
+          'updatedAt'
+        ]);
+    }
+
+    match /rooms/{roomCode} {
+      allow get: if isValidRoomId(roomCode) && (
+        resource == null ||
+        (isSignedIn() && (
+          resource.data.status == 'waiting' ||
+          resource.data.hostUid == request.auth.uid ||
+          resource.data.guestUid == request.auth.uid
+        ))
+      );
+
+      allow list: if isSignedIn() && (
+        resource.data.hostUid == request.auth.uid ||
+        resource.data.guestUid == request.auth.uid
+      );
+
+      allow create: if isSignedIn() &&
+        isVerifiedUser() &&
+        isValidRoomId(roomCode) &&
+        isValidRoom(incoming()) &&
+        incoming().roomCode == roomCode &&
+        incoming().hostUid == request.auth.uid &&
+        incoming().guestUid == '' &&
+        incoming().status == 'waiting' &&
+        incoming().winnerSeat == 0 &&
+        incoming().forfeitedBySeat == 0 &&
+        incoming().rematchCount == 0 &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn() &&
+        isVerifiedUser() &&
+        isValidRoomId(roomCode) &&
+        isValidRoom(incoming()) &&
+        isImmutableRoomHeaderPreserved() && (
+          isHostLobbyUpdateAction() ||
+          isGuestJoinAction() ||
+          isHostHeartbeatAction() ||
+          isGuestHeartbeatAction() ||
+          isMatchPlayAction() ||
+          isRematchAction()
+        );
+
+      allow delete: if false;
+    }
+  }
+}

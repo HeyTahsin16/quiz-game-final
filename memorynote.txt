@@ -1,0 +1,4 @@
+PHASE: 6 (/memorynote/phase-6.txt)
+LAST DONE: Added quizHistory tracking in GameState and FailedQuestionsReview component on both the BattleScreen finished match modal and ResultScreen so players can see all failed questions, their selected/timeout answers, correct answers, and KaTeX explanations (in English and Bangla)
+NEXT: Ready for next user request
+BLOCKERS: None
